@@ -1,0 +1,112 @@
+---
+title: "The Smart Alert System"
+description: "A complete catalog of Codaro's real-time interventions, how they are triggered, and the value they provide."
+---
+
+## The Smart Alert System
+
+The Smart Alert System is the core of Codaro's "Live GPS" philosophy. Unlike passive dashboards that wait for you to look at them, Smart Alerts proactively push high-signal information to you the moment it happens.
+
+We classify alerts into three categories: **Collaboration**, **Risk**, and **Process**.
+
+---
+
+## 1. Collaboration Alerts
+
+_Preventing friction and merge conflicts before they happen._
+
+### 🤝 Collision Warning (`COLLISION_WARNING`)
+
+The "Air Traffic Control" for your codebase. This alert fires when two developers are heading towards a merge conflict.
+
+- **Trigger Logic:**
+  - Two or more active editing sessions are detected on the **same file** (or overlapping file paths).
+  - Activity must occur within the same **5-minute sliding window**.
+- **The Problem Solved:** Merge conflicts waste hours of time and cause regressions. Developers often don't know a teammate is touching the same file until they try to push.
+- **The Value:** Immediate coordination. Developers can Slack each other ("Hey, I see you're on `auth.ts`, let's sync") before writing incompatible code.
+
+### 📦 Code Merged (`CODE_MERGED`)
+
+A positive reinforcement loop that keeps the team in sync without status meetings.
+
+- **Trigger Logic:** A Pull Request is successfully merged into the target branch (e.g., `main` or `develop`).
+- **The Value:** Instant awareness. Dependent tasks can be unblocked immediately without waiting for the next stand-up.
+
+---
+
+## 2. Health & Risk Alerts
+
+_Identifying invisible struggle and technical debt in real-time._
+
+### ⚠️ High Code Churn (`HIGH_CODE_CHURN`)
+
+This is our "Struggle Detection" mechanic. It identifies when a developer is working hard but making little forward progress.
+
+- **Trigger Logic:**
+  - **Duration:** Session lasts \> **45 minutes**.
+  - **Pattern:** High volume of lines changed (Churn) but low Net Progress (final file size change).
+  - **Concentration:** Activity is focused on 1-3 "hot files."
+- **The Problem Solved:** Developers often spin their wheels on refactoring or complex bugs, afraid to ask for help.
+- **The Value:** Empathy and Support. It prompts a manager or lead to check in: _"I see you're wrestling with the payment module. Want to pair on it?"_
+
+### 🔥 Critical Risk Detected (`CRITICAL_RISK_DETECTED`)
+
+An automated quality gate powered by the AI Technical Report.
+
+- **Trigger Logic:**
+  - Triggered when the **AI Technical Report** analyzes a commit.
+  - A specific risk (security vulnerability, breaking change, anti-pattern) is identified with a **Severity Score ≥ 8/10**.
+- **The Value:** Safety. Prevents bad code from sitting in the repository unnoticed. It acts as an instant, automated code review for high-severity issues.
+
+---
+
+## 3. Process & Workflow Alerts
+
+_Automating the "boring" parts of project management._
+
+### 🚀 Task Started (`TASK_STARTED`)
+
+Eliminates the need for manual Jira updates or "I'm starting this now" messages.
+
+- **Trigger Logic:**
+  - The first **Heartbeat** is detected on a git branch associated with a specific Task ID (e.g., `feature/PROJ-101`).
+- **The Value:** Visibility. Everyone knows exactly what is actively being worked on right now.
+
+### 🔄 Task Reopened (`TASK_REOPENED`)
+
+A critical alert for preventing scope creep and zombie tasks.
+
+- **Trigger Logic:**
+  - Code activity (Heartbeat) is detected on a task that was previously marked as **Done/Completed**.
+- **The Problem Solved:** "Zombie tasks" that come back to life often indicate hidden bugs, regressions, or scope creep that wasn't planned.
+- **The Value:** Control. Managers can instantly ask: _"Why are we working on the login page again? I thought that was shipped last week."_
+
+### ⏳ Stalled Task (`STALLED_TASK`)
+
+Finds work that has fallen through the cracks.
+
+- **Trigger Logic:**
+  - A task has a status of **In Progress**.
+  - No Git activity (Commits or Heartbeats) has been detected for this task for a configured threshold (default: **48 hours**).
+- **The Value:** Flow. Prevents tasks from rotting in the "Doing" column and helps unblock developers who might have context-switched away.
+
+### ✅ Task Completed (`TASK_COMPLETED`)
+
+Closes the loop on value delivery.
+
+- **Trigger Logic:**
+  - A task status changes to a completion state (e.g., `Done`, `Deployed`, `Closed`) in the external system (Jira/Linear).
+- **The Value:** Celebration and Closure. Confirms that the code has translated into business value.
+
+---
+
+## 4. Smart Summaries
+
+_AI-driven synthesis of complex activities._
+
+### ✅ New Commit (`NEW_COMMIT`)
+
+The "Smart Commit Message."
+
+- **Trigger Logic:** A new commit is pushed.
+- **The Value:** Instead of a cryptic message like _"fix bug"_, Codaro's AI generates a clear, human-readable summary of the business impact: _"Fixed null pointer exception in user login flow."_

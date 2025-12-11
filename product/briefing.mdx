@@ -1,0 +1,72 @@
+---
+title: "Intelligence Briefings"
+description: "How Codaro's Impact Briefing replaces daily status meetings with a single, stateful source of truth."
+---
+
+## The Impact Briefing
+
+Codaro synthesizes thousands of data points—commits, alerts, and heartbeat metrics—into a single, high-signal view called the **Impact Briefing**.
+
+Designed for Engineering Managers and CTOs, the Impact Briefing answers the two most important questions in software delivery: _"What value did we ship?"_ and _"What risks are currently active?"_
+
+---
+
+## The "Stateful" Philosophy
+
+Most engineering reports are **ephemeral** (e.g., a Jira message that scrolls away) or **stateless** (e.g., a dashboard that resets every sprint).
+
+The Impact Briefing is **Stateful**.
+
+- **Persistent Risks:** If a critical issue triggers on Monday and isn't fixed, it remains pinned to your briefing on Tuesday, Wednesday, and Thursday. It effectively "haunts" the briefing until resolved.
+- **Value Ledger:** It creates a permanent record of value delivered, separating "busy work" (chore commits) from "shipped value" (feature completion).
+
+---
+
+## 1. Highlights: What We Shipped (The Value Ledger)
+
+_Replacing the "What did you do yesterday?" stand-up question._
+
+The **Highlights** section filters out the noise of daily development to show only the work that moves the business forward.
+
+### How It Works
+
+- **Noise Filtering:** Codaro’s AI analyzes every commit. It automatically suppresses low-value activity (e.g., "fix typo", "update readme", "merge branch") from the strategic view.
+- **Value Extraction:** It highlights significant changes: Feature completions, Bug fixes, and Performance improvements.
+
+### The Briefing View
+
+> **✅ Shipped Today:**
+>
+> - **Sarah (Checkout Team):** Enhanced payment validation to prevent fraudulent transactions. _(Feature)_
+> - **Mike (Platform):** Migrated the User Auth service to the new API, reducing latency by 200ms. _(Performance)_
+> - **Alex (Frontend):** Fixed the crashing bug on the settings page reported by Customer Support. _(Bug Fix)_
+
+---
+
+## 2. Lowlights: Active Risks (The blockers)
+
+_Replacing the "Any blockers?" stand-up question._
+
+The **Lowlights** section is your daily "Call to Action." It lists **Active Unresolved Alerts** that require management intervention.
+
+### The Persistence Engine
+
+A Lowlight only disappears when the underlying issue is resolved in the code.
+
+- **Auto-Resolution:** If a `CRITICAL_RISK` alert was triggered by a bad commit, pushing a fix (a new commit that resolves the risk) automatically clears the Lowlight.
+- **Manual Resolution:** Managers can dismiss alerts that are false positives or "won't fix."
+
+### Urgency Markers
+
+The briefing visually prioritizes risks based on how long they have been ignored:
+
+- ⚠️ **Warning (\>4h):** The issue is fresh but unaddressed.
+- 🚨 **Critical (\>8h):** The issue has persisted through a full work day. Immediate intervention required.
+
+### The Briefing View
+
+> **🚨 Active Lowlights (Action Required):**
+>
+> - **[8h ago] Critical Security Risk:** SQL Injection vulnerability detected in `user.controller.ts`. _Owner: Pending_
+> - **[5h ago] High Code Churn:** Developer Tom has been struggling with `billing-logic.ts` for 5 hours with zero net progress. _Action: Schedule Pair Programming._
+> - **[4h ago] Stalled Task:** The "Q3 Reporting" task has had no activity for 48 hours but is marked "In Progress."

@@ -1,0 +1,67 @@
+---
+title: "AI Reports"
+description: "How Codaro's multi-agent system analyzes every commit to provide deep technical, workflow, and business insights."
+---
+
+## AI Reports: From Diff to Wisdom
+
+Every time code is pushed to your repository, Codaro triggers a chain of AI agents to analyze the work. We don't just look at *lines changed*; we analyze intent, quality, and behavior.
+
+These reports are generated automatically and stored permanently, creating a "living history" of your project's evolution.
+
+
+
+---
+
+## 1. The General Report (The "CEO Translator")
+**Audience:** Product Managers, Stakeholders, Non-Technical Leadership.
+
+Most engineering updates are unintelligible to business leaders ("Updated the polymorphic association in the user model"). The General Report translates this technical work into business value.
+
+### How It Works
+* **Input:** The raw Git diff + linked Jira task context.
+* **The "Translator" Agent:** An AI model instructed to strip out all technical jargon (e.g., refactoring, endpoints, payloads) and focus purely on *user impact*.
+* **Output Example:**
+    * *Raw Commit:* `feat: refactor auth.service.ts to handle null token payload`
+    * *General Report:* "Fixed a critical bug that caused the login page to crash for some users, improving system stability."
+
+### Key Metrics
+* **Impact Level:** Low / Medium / High (Is this a trivial tweak or a major release?)
+* **Estimated Effort:** Trivial / Moderate / Significant (Did this take 5 minutes or 5 hours?)
+
+---
+
+## 2. The Technical Report (The "Staff Engineer")
+**Audience:** Developers, Tech Leads, QA.
+
+This report acts as an automated, asynchronous code review. It doesn't replace human review but augments it by catching complexity and risks instantly.
+
+### How It Works
+* **Input:** The raw Git diff + Static Analysis Metrics.
+* **The "Reviewer" Agent:** An AI model adopting the persona of a strict Staff Engineer. It performs a **Proportional Review**:
+    * *Low Impact Changes:* Brief sanity check.
+    * *High Impact Changes:* Deep analysis of architecture and security.
+* **Critical Risk Detection:** If the agent identifies a risk with a severity score ≥ 8/10 (e.g., SQL Injection, Breaking API Change), it triggers a `CRITICAL_RISK_DETECTED` alert immediately.
+
+### Key Metrics
+* **Severity Score (0-10):** A quantitative risk assessment.
+* **Complexity Delta:** Did this commit make the codebase cleaner or more complex?
+* **Code Smells:** Automated detection of anti-patterns (e.g., God Classes, Magic Numbers).
+
+---
+
+## 3. The Workflow Report (The "Team Mentor")
+**Audience:** Engineering Managers, Developers.
+
+This is Codaro's unique capability. We analyze *how* the code was written to understand developer experience and flow.
+
+### How It Works
+* **Input:** The Git diff + Real-time Heartbeat data (from the IDE plugin).
+* **The "Mentor" Agent:** Reconstructs the work session to answer questions like: *Was this a focused deep-work session, or a fragmented struggle?*
+
+### Key Metrics
+* **Flow State %:** The percentage of time spent in deep, uninterrupted work (vs. context switching).
+* **Productivity Score:** A synthesis of output volume and focus quality.
+* **Context Switches:** How many times the developer had to jump between files or tasks (a high number indicates distraction or poor task definition).
+
+> **Why this matters:** A developer might ship a small PR but have a low productivity score because they were interrupted 15 times. The Workflow Report reveals this hidden cost.

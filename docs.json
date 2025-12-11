@@ -24,8 +24,9 @@
           {
             "group": "Product Overview",
             "pages": [
-              "index",
-              "quickstart"
+              "product/alerts",
+              "product/reports",
+              "product/briefing"
             ]
           }
         ]

@@ -1,0 +1,43 @@
+---
+title: "Security & Compliance"
+description: "How Codaro protects your intellectual property with enterprise-grade encryption, zero-retention policies, and strict compliance."
+---
+
+## Enterprise-Grade Security
+
+Your code is your most valuable intellectual property. Codaro is architected with a **security-first mindset**, ensuring that your proprietary data remains private, protected, and under your control at all times.
+
+We operate on a **Zero-Retention** principle regarding your source code.
+
+---
+
+## 🛡️ Zero-Retention & IP Protection
+
+**We do not train our models on your code.**
+
+This is our fundamental promise. Unlike consumer AI tools that may use user data to improve their models, Codaro treats your source code as **ephemeral context**, not training data.
+
+- **Ephemeral Processing:** When our Agentic Engine analyzes a commit, the code is loaded into secure, isolated memory for the duration of the analysis (typically seconds) and is immediately discarded.
+- **No Persistence:** We do not write your source files to our database or long-term storage. Only the _insights_ derived from the code (e.g., "Complexity score is 8/10", "Potential SQL injection found") are stored.
+- **Isolation:** Your data is logically isolated. Analysis requests are processed in stateless containers that are spun down after execution.
+
+---
+
+## 🔐 Enterprise-Grade Encryption
+
+Security is natively embedded in every layer of our infrastructure, not bolted on as an afterthought.
+
+- **Encryption at Rest:** All persisted data—including metadata, user profiles, and generated reports—is encrypted using **AES-256** (Advanced Encryption Standard).
+- **Encryption in Transit:** All data transmission between your Git provider, your IDE, and Codaro's servers is strictly enforced via **TLS 1.3** (Transport Layer Security). We enforce HSTS (HTTP Strict Transport Security) to prevent downgrade attacks.
+- **Key Management:** Encryption keys are managed via Google Cloud KMS (Key Management Service) with strict rotation policies.
+
+---
+
+## 🌍 EU Infrastructure & GDPR
+
+We understand the requirements of European and global enterprises regarding data sovereignty.
+
+- **Data Residency:** Codaro is hosted entirely on **Google Cloud Platform (GCP)** within the **European Union**. Your data does not leave this jurisdiction.
+- **GDPR Compliance:** We are fully compliant with the General Data Protection Regulation.
+  - **Right to Erasure:** You can request the complete deletion of your workspace and all associated metadata.
+  - **Data Minimization:** We only request the minimum scopes necessary from GitHub/BitBucket to perform our analysis.
