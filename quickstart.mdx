@@ -1,80 +1,61 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Complete Setup Guide"
+description: "Get Codaro connected to your version control, task management, and IDE in three simple steps to unlock real-time Agentic Intelligence."
 ---
 
-## Get started in three steps
-
-Get your documentation site running locally and make your first customization.
-
-### Step 1: Set up your local environment
-
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
-
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
-
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **Integration is very simple and takes around 3 minutes.** Our platform is designed for rapid deployment. If we don't currently support an app you use, please contact us at [**info@codaro.dev**](mailto:info@codaro.dev) and we commit to providing support for it within 24-48 hours.
 </Note>
+
+Follow these four steps to fully connect your engineering ecosystem and begin experiencing the benefits of Agentic Management.
+
+<Steps>
+  <Step title="Step 1: Connect Version Control System (VCS)">
+    Codaro requires read-access to your VCS to track code changes, commits, and Pull Request (PR) activity. This data forms the **ground-truth** of all engineering work.
+
+    You must be an **Owner** or **Admin** of the organization to authorize this step.
+
+    1. Navigate to **Integrations** Tab in your Team in the Codaro web app.
+    2. Select your provider: **GitHub** or **BitBucket**.
+    3. Follow the OAuth prompt and select the repositories you want Codaro to analyze.
+       - **Why we need this:** This allows us to generate code activity reports and summaries, find issues in the code, and have the best data-driven insights. More strategically, this raw data is the input for the Smart Alert System and Agentic Engine, giving us the huge context necessary to predict and intervene _before_ problems occur.
+  </Step>
+  <Step title="Step 2: Connect Task Management System (TMS)">
+    Connecting your TMS is vital for providing **business context**. This step links code activity (from Step 1) to specific project goals and deadlines, which is essential for our predictive AI.
+
+    You must have the necessary **Admin** rights within your TMS to configure the connection and map projects.
+
+    1. In the Codaro web app, navigate to **Integrations** Tab.
+    2. Select your provider: **Jira** (contact [info@codaro.dev](mailto:info@codaro.dev), if your App is missing).
+    3. Authenticate and select your TMS Project Identifiers (e.g., `PROJ`, `MVP`, `APP`) in the popup.
+
+    - **Why we need this:** This enables Codaro to link commits to your tasks, allowing for progress tracking and aggregation of **business context** for the Agentic Engine. This context is critical for predictive alerts like `TASK_STARTED` or `TASK_STALLED`.
+
+    <Info>
+      **Context Linking Tip:** To ensure accurate linking between your code and tasks, include the Project Identifier (e.g., `PROJ-692`) in your commit message or branch name (e.g., `features/PROJ-692-new-api`).
+    </Info>
+  </Step>
+  <Step title="Step 3: Invite Team Members">
+    While Steps 1 and 2 activate the core platform, inviting your team is how Codaro begins to deliver value at scale.
+
+    1. Go to the **Team** tab in Codaro and click the **Invite Team Member** button.
+    2. Invite team members via their email addresses. They will need to accept the invitation from the mail they recieve to gain access.
+    3. Once logged in, individual team members can connect their personal integrations (e.g., Jira/Github) and, crucially, download the IDE Plugin (Step 4).
+  </Step>
+  <Step title="Step 4: Download the Developer IDE Plugin">
+    For developers, the IDE Plugin is the primary interaction point with Codaro. It is the tool that preserves **flow state** and provides hyperlocal, real-time data to the Agentic Engine for comprehensive workflow analysis.
+
+    1. Search for the **"Codaro"** extension in the VS Code Marketplace or JetBrains Plugin Repository.
+    2. Install the plugin and use your unique **API Key** (found in the **IDE Extension** subtab in the **Integrations** tab) to connect it to your workspace.
+
+    - **Why we need this:** The plugin sends a silent 'heartbeat' (activity data) which is crucial for determining **Flow State Index** and generating hyperlocal alerts like the `COLLISION_WARNING`. This deep, real-time context allows Codaro to **analyze developer workflow** and provide insights into who is online or may potentially need a quick sync or assistance.
+  </Step>
+</Steps>
+
+## Security and Privacy
+
+Codaro is built on a foundation of **enterprise-grade security** and strict data privacy standards. We commit to maximum data isolation and control, and we never use your proprietary code for training AI models.
+
+<Card title="View Full Security & Compliance Details" icon="lock" horizontal href="/reference/security">
+  Detailed documentation on data isolation, compliance (GDPR/CCPA), PII handling, retention policies, and our options for On-Premise and Self-Hosted deployment.
+</Card>
