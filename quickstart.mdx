@@ -21,6 +21,13 @@ Follow these four steps to fully connect your engineering ecosystem and begin ex
     2. Select your provider: **GitHub** or **BitBucket**.
     3. Follow the OAuth prompt and select the repositories you want Codaro to analyze.
        - **Why we need this:** This allows us to generate code activity reports and summaries, find issues in the code, and have the best data-driven insights. More strategically, this raw data is the input for the Smart Alert System and Agentic Engine, giving us the huge context necessary to predict and intervene _before_ problems occur.
+
+    <img
+      src="/images/Integrations.png"
+      alt="Integrations Tab"
+      title="Integrations Tab"
+      style={{ width:"100%" }}
+    />
   </Step>
   <Step title="Step 2: Connect Task Management System (TMS)">
     Connecting your TMS is vital for providing **business context**. This step links code activity (from Step 1) to specific project goals and deadlines, which is essential for our predictive AI.
@@ -47,10 +54,21 @@ Follow these four steps to fully connect your engineering ecosystem and begin ex
   <Step title="Step 4: Download the Developer IDE Plugin">
     For developers, the IDE Plugin is the primary interaction point with Codaro. It is the tool that preserves **flow state** and provides hyperlocal, real-time data to the Agentic Engine for comprehensive workflow analysis.
 
-    1. Search for the **"Codaro"** extension in the VS Code Marketplace or JetBrains Plugin Repository.
-    2. Install the plugin and use your unique **API Key** (found in the **IDE Extension** subtab in the **Integrations** tab) to connect it to your workspace.
+    1. Search for **"Codaro"** in the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Codaro.Codaro), [VSX Registry Marketplace](https://open-vsx.org/extension/Codaro/Codaro) or [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/28408-codaro) and click **Install**.
+    2. Use the shortcut `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) and type **"View: Show Codaro"** to open the sidebar.
+    3. Copy your **UID** from the **Integrations \> IDE Extension** tab of your dashboard, paste it into the sidebar input, and click **Save UID** to link your workspace.
 
     - **Why we need this:** The plugin sends a silent 'heartbeat' (activity data) which is crucial for determining **Flow State Index** and generating hyperlocal alerts like the `COLLISION_WARNING`. This deep, real-time context allows Codaro to **analyze developer workflow** and provide insights into who is online or may potentially need a quick sync or assistance.
+
+    <Danger>
+      **Verify Your Extension**\
+      To avoid malicious clones, ensure you are using the official extension with the unique identifier: `codaro.codaro`
+    </Danger>
+    <CardGroup cols={2}>
+      ![Be aware of the clones!](/images/Extension.jpg)
+
+      ![UID Setup Guide](/images/Extension2.jpg)
+    </CardGroup>
   </Step>
 </Steps>
 
